@@ -808,6 +808,13 @@ Route::group(['prefix' => 'v1', 'middleware' => ['api', 'throttle:api']], functi
             ]
             )->name('api.settings.slacktest');
 
+            Route::post('msteamstest',
+            [
+                Api\SettingsController::class, 
+                'msteamstest'
+            ]
+            )->name('api.settings.msteamstest');
+
             Route::post('mailtest',
             [
                 Api\SettingsController::class, 
