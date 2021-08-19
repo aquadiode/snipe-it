@@ -311,6 +311,11 @@ return [
         App\Providers\MacroServiceProvider::class,
         App\Providers\SamlServiceProvider::class,
 
+        /*
+        * Notification Channels
+        */
+        NotificationChannels\MicrosoftTeams\MicrosoftTeamsServiceProvider::class,
+
     ],
 
     /*

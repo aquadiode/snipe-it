@@ -176,6 +176,7 @@ return [
     'model_no'				=> 'Model No.',
     'months'				=> 'months',
     'moreinfo'				=> 'More Info',
+    'msteams_test_msg'        => 'Oh hai! Looks like your Microsoft Teams Webhook with Snipe-IT is working!',
     'name'					=> 'Name',
     'new_password'          => 'New Password',
     'next'					=> 'Next',
