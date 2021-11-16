@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Watson\Validating\ValidatingTrait;
 
+
+
 class License extends Depreciable
 {
     use HasFactory;
@@ -179,25 +181,20 @@ class License extends Depreciable
             return true;
         }
         // Else we're adding seats.
-        //Create enough seats for the change.
-        $licenseInsert = [];
-        for ($i = $oldSeats; $i < $newSeats; $i++) {
-            $licenseInsert[] = [
-                'user_id' => Auth::id(),
-                'license_id' => $license->id,
-                'created_at' => now(),
-                'updated_at' => now()
-            ];
-        }
-        //Chunk and use DB transactions to prevent timeouts.
-
-        collect($licenseInsert)->chunk(1000)->each(function ($chunk) {
-            DB::transaction(function () use ($chunk) {
-                LicenseSeat::insert($chunk->toArray());
-            });
+        DB::transaction(function () use ($license, $oldSeats, $newSeats) {
+            // Log::info($license);
+            
+            for ($i = $oldSeats; $i < $newSeats; $i++) {
+                
+              //  Log::info($oldSeats);   
+              //  Log::info($newSeats);   
+                $license->licenseSeatsRelation()->save(new LicenseSeat, ['user_id' => Auth::id()]);
+                //$license->licenseSeatsRelation()->save(new LicenseSeat, ['user_id' => Auth::id(), 'codes' => 'fake']);
+            }
+            $ls = new LicenseSeat;
+            $ls->populateSeatCodes($license);
         });
-
-        // On initial create, we shouldn't log the addition of seats.
+        // On initail create, we shouldn't log the addition of seats.
         if ($license->id) {
             //Log the addition of license to the log.
             $logAction = new Actionlog();
