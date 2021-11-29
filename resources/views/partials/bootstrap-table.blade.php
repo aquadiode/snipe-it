@@ -570,6 +570,12 @@
         }
     }
 
+    function multipleValuesFormatter(value) {
+        if (value) {
+            return  '<p>Multiple</p>';
+        }
+    }
+
     function dateDisplayFormatter(value) {
         if (value) {
             return  value.formatted;
