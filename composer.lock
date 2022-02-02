@@ -3187,6 +3187,131 @@
             "time": "2015-04-12T19:57:10+00:00"
         },
         {
+            "name": "laravel-notification-channels/discord",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-notification-channels/discord.git",
+                "reference": "7e88654a40aac1ce164194153b336c3f21c23636"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-notification-channels/discord/zipball/7e88654a40aac1ce164194153b336c3f21c23636",
+                "reference": "7e88654a40aac1ce164194153b336c3f21c23636",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^6.3 || ^7.0",
+                "illuminate/console": "^6.0 || ^7.0 || ^8.0",
+                "illuminate/notifications": "^6.0 || ^7.0 || ^8.0",
+                "illuminate/queue": "^6.0 || ^7.0 || ^8.0",
+                "illuminate/support": "^6.0 || ^7.0 || ^8.0",
+                "php": "^7.2|^8.0",
+                "textalk/websocket": "^1.2"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.3.3",
+                "orchestra/testbench": "^5.0 || ^6.0",
+                "phpunit/phpunit": "^8.5 || ^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "NotificationChannels\\Discord\\DiscordServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NotificationChannels\\Discord\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cody Scott",
+                    "email": "cs475x@icloud.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel notification driver for Discord.",
+            "homepage": "https://github.com/laravel-notification-channels/discord",
+            "keywords": [
+                "channel",
+                "discord",
+                "driver",
+                "laravel",
+                "notification"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel-notification-channels/discord/issues",
+                "source": "https://github.com/laravel-notification-channels/discord/tree/1.3.0"
+            },
+            "time": "2020-12-26T22:05:21+00:00"
+        },
+        {
+            "name": "laravel-notification-channels/microsoft-teams",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-notification-channels/microsoft-teams.git",
+                "reference": "340984dfdb870dbb3d84071f5072f548d8f1535a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-notification-channels/microsoft-teams/zipball/340984dfdb870dbb3d84071f5072f548d8f1535a",
+                "reference": "340984dfdb870dbb3d84071f5072f548d8f1535a",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.3 || ^7.0",
+                "illuminate/notifications": "~5.5 || ~6.0 || ~7.0 || ^8.0 || ^9.0",
+                "illuminate/support": "~5.5 || ~6.0 || ~7.0 || ^8.0 || ^9.0",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.2.3",
+                "phpunit/phpunit": "^8.0|^9.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "NotificationChannels\\MicrosoftTeams\\MicrosoftTeamsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NotificationChannels\\MicrosoftTeams\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tobias Madner",
+                    "email": "tobias.madner@gmx.at",
+                    "homepage": "https://www.pinpoll.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Laravel Notification Channel for Microsoft Teams",
+            "homepage": "https://github.com/laravel-notification-channels/microsoft-teams",
+            "support": {
+                "issues": "https://github.com/laravel-notification-channels/microsoft-teams/issues",
+                "source": "https://github.com/laravel-notification-channels/microsoft-teams/tree/1.1.1"
+            },
+            "time": "2022-01-21T09:34:55+00:00"
+        },
+        {
             "name": "laravel/framework",
             "version": "v8.83.22",
             "source": {
@@ -11227,6 +11352,55 @@
             "time": "2022-06-14T09:09:40+00:00"
         },
         {
+            "name": "textalk/websocket",
+            "version": "1.5.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Textalk/websocket-php.git",
+                "reference": "846542f82658132cd36acb7a7e8ce0f03960c295"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Textalk/websocket-php/zipball/846542f82658132cd36acb7a7e8ce0f03960c295",
+                "reference": "846542f82658132cd36acb7a7e8ce0f03960c295",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2 | ^8.0",
+                "psr/log": "^1 | ^2 | ^3"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "^2.0",
+                "phpunit/phpunit": "^8.0|^9.0",
+                "squizlabs/php_codesniffer": "^3.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WebSocket\\": "lib"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "ISC"
+            ],
+            "authors": [
+                {
+                    "name": "Fredrik Liljegren"
+                },
+                {
+                    "name": "Sören Jensen",
+                    "email": "soren@abicart.se"
+                }
+            ],
+            "description": "WebSocket client and server",
+            "support": {
+                "issues": "https://github.com/Textalk/websocket-php/issues",
+                "source": "https://github.com/Textalk/websocket-php/tree/1.5.5"
+            },
+            "time": "2021-08-07T10:21:40+00:00"
+        },
+        {
             "name": "tijsverkoyen/css-to-inline-styles",
             "version": "2.2.4",
             "source": {
@@ -11278,6 +11452,199 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/2.2.4"
             },
             "time": "2021-12-08T09:12:39+00:00"
+        },
+        {
+            "name": "tmilos/lexer",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tmilos/lexer.git",
+                "reference": "e7885595614759f1da2ff79b66e3fb26d7f875fa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tmilos/lexer/zipball/e7885595614759f1da2ff79b66e3fb26d7f875fa",
+                "reference": "e7885595614759f1da2ff79b66e3fb26d7f875fa",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~5.6",
+                "satooshi/php-coveralls": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tmilos\\Lexer\\": "src/",
+                    "Tests\\Tmilos\\Lexer\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Milos Tomic",
+                    "email": "tmilos@gmail.com"
+                }
+            ],
+            "description": "Lexical analyzer with individual token definition with regular expressions",
+            "keywords": [
+                "lexer",
+                "parser"
+            ],
+            "support": {
+                "issues": "https://github.com/tmilos/lexer/issues",
+                "source": "https://github.com/tmilos/lexer/tree/master"
+            },
+            "time": "2016-12-21T11:22:39+00:00"
+        },
+        {
+            "name": "tmilos/scim-filter-parser",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tmilos/scim-filter-parser.git",
+                "reference": "cfd9ba1f33e1e15adcab2481bffd74cb9fb35704"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tmilos/scim-filter-parser/zipball/cfd9ba1f33e1e15adcab2481bffd74cb9fb35704",
+                "reference": "cfd9ba1f33e1e15adcab2481bffd74cb9fb35704",
+                "shasum": ""
+            },
+            "require": {
+                "tmilos/lexer": "^1.0",
+                "tmilos/value": "^1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7",
+                "satooshi/php-coveralls": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tmilos\\ScimFilterParser\\": "src/",
+                    "Tests\\Tmilos\\ScimFilterParser\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Milos Tomic",
+                    "email": "tmilos@gmail.com"
+                }
+            ],
+            "description": "System for Cross-domain Identity Management SCIM AST filter parser PHP library",
+            "keywords": [
+                "SCIM AST",
+                "SCIM filter parser",
+                "SCIM parser",
+                "ast",
+                "parser",
+                "scim",
+                "simplecloud"
+            ],
+            "support": {
+                "issues": "https://github.com/tmilos/scim-filter-parser/issues",
+                "source": "https://github.com/tmilos/scim-filter-parser/tree/master"
+            },
+            "time": "2017-01-19T11:17:42+00:00"
+        },
+        {
+            "name": "tmilos/scim-schema",
+            "version": "0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tmilos/scim-schema.git",
+                "reference": "bb871e667b33080b4cd36d7a9b2ac2cdbf796062"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tmilos/scim-schema/zipball/bb871e667b33080b4cd36d7a9b2ac2cdbf796062",
+                "reference": "bb871e667b33080b4cd36d7a9b2ac2cdbf796062",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8|^5.6",
+                "satooshi/php-coveralls": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tmilos\\ScimSchema\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Milos Tomic",
+                    "email": "tmilos@gmail.com"
+                }
+            ],
+            "description": "SCIM schema library",
+            "support": {
+                "issues": "https://github.com/tmilos/scim-schema/issues",
+                "source": "https://github.com/tmilos/scim-schema/tree/master"
+            },
+            "time": "2017-11-25T22:18:16+00:00"
+        },
+        {
+            "name": "tmilos/value",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tmilos/value.git",
+                "reference": "9e78ad9c026b14cacec1a27552ee0ada9d7d1c06"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tmilos/value/zipball/9e78ad9c026b14cacec1a27552ee0ada9d7d1c06",
+                "reference": "9e78ad9c026b14cacec1a27552ee0ada9d7d1c06",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.1"
+            },
+            "require-dev": {
+                "moontoast/math": "~1.1",
+                "phpunit/phpunit": "~4.8",
+                "ramsey/uuid": "^3.3",
+                "satooshi/php-coveralls": "~0.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Tmilos\\Value\\": "src/",
+                    "Tmilos\\Value\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Milos Tomic",
+                    "email": "tmilos@gmail.com",
+                    "homepage": "https://github.com/tmilos/",
+                    "role": "Developer"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/tmilos/value/issues",
+                "source": "https://github.com/tmilos/value/tree/master"
+            },
+            "time": "2016-06-06T10:22:16+00:00"
         },
         {
             "name": "tmilos/lexer",

@@ -315,6 +315,7 @@ return [
         * Notification Channels
         */
         NotificationChannels\MicrosoftTeams\MicrosoftTeamsServiceProvider::class,
+        NotificationChannels\Discord\DiscordServiceProvider::class,
 
     ],
 

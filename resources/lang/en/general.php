@@ -92,6 +92,7 @@ return [
     'depreciations'         => 'Depreciations',
     'depreciation_report'	=> 'Depreciation Report',
     'details'               => 'Details',
+    'discord_test_msg'      => 'Oh hai! Looks like your Discord Webhook with Snipe-IT is working!',
     'download'				=> 'Download',
     'download_all'		    => 'Download All',
     'editprofile'  			=> 'Edit Your Profile',
