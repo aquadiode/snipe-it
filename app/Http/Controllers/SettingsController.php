@@ -662,11 +662,11 @@ class SettingsController extends Controller
     }
 
     /**
-     * Return a form to allow a super admin to update settings.
+     * Return a form to allow a super admin to update outgoing webhook settings.
      *
-     * @author [A.Roth] [<aroth21@mac.com>]
+     * @author [A. Gianotto] [<snipe@snipe.net>]
      *
-     * @since [v6.0]
+     * @since [v1.0]
      *
      * @return View
      */
@@ -679,7 +679,7 @@ class SettingsController extends Controller
 
     /**
      * saves integration settings.
-     *
+    *
      * @author [A. Gianotto] [<snipe@snipe.net>]
      *
      * @since [v1.0]
@@ -726,7 +726,6 @@ class SettingsController extends Controller
 
         }
         
-       // $setting->discord_endpoint = $request->input('discord_endpoint');
 
         if ($setting->save()) {
             return redirect()->route('settings.index')
