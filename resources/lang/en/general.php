@@ -368,6 +368,8 @@ return [
     'checkout_tooltip' => 'Check this item out',
     'checkin_tooltip' => 'Check this item in',
     'checkout_user_tooltip' => 'Check this item out to a user',
+    'webhook_test_msg'      => 'Oh hai! Looks like your Webhook with Snipe-IT is working!',
+    'webhook_msg_note'       => 'A Webhook message will be sent',
     'maintenance_mode'      => 'The service is temporarily unavailable for system updates. Please check back later.',
     'maintenance_mode_title' => 'System Temporarily Unavailable',
     'ldap_import'           => 'User password should not be managed by LDAP. (This allows you to send forgotten password requests.)',
