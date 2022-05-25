@@ -677,28 +677,31 @@
                                                 </strong>
                                             </div>
                                             <div class="col-md-6">
+                                                @php  
+                                                
+                                                    $asset_current_location = $asset->location;
+                                                    $asset_fullpath = $asset_current_location->name;
+                                                
+                                                @endphp
+                                                
+                                                @while ($asset_current_location->parent_id != null)
+                                                   
+                                                    @php  
+                                                    
+                                                    $asset_fullpath = $asset_fullpath."/".$asset_current_location->parent->name;
+                                                    $asset_current_location = $asset_current_location->parent;
+                                                      
+                                                    @endphp
+                                                @endwhile
+    
                                                 @can('superuser')
-                                             
-                                                    <a href="{{ route('locations.show', ['location' => $asset->location->id]) }}">
+                                                    <a data-toggle="tooltip" data-placement="right" title="{{ $asset_fullpath }}" href="{{ route('locations.show', ['location' => $asset->location->id]) }}">
                                                         {{ $asset->location->name }}
                                                     </a>
-
-                                                   @php  $asset_current_location = $asset->location;
-                                                   @endphp
-
-                                                    @while ($asset_current_location->parent_id != null)
-                                                    < <a href="{{ route('locations.show', ['location' => $asset_current_location->parent_id]) }}">
-                                                        {{  $asset_current_location->parent->name }}
-                                                    </a>
-
-                                                       @php  $asset_current_location = $asset_current_location->parent;
-                                                       @endphp
-
-                                                    @endwhile
-                                                   
                                                 @else
                                                     {{ $asset->location->name }}
                                                 @endcan
+
                                             </div>
                                         </div>
                                     @endif
@@ -711,8 +714,26 @@
                                                 </strong>
                                             </div>
                                             <div class="col-md-6">
+
+                                                @php  
+                                                
+                                                $asset_current_defaultlocation = $asset->defaultLoc;
+                                                $asset_deffullpath = $asset_current_defaultlocation->name;
+                                            
+                                            @endphp
+                                            
+                                            @while ($asset_current_defaultlocation->parent_id != null)
+                                               
+                                                @php  
+                                                
+                                                $asset_deffullpath = $asset_deffullpath."/".$asset_current_defaultlocation->parent->name;
+                                                $asset_current_defaultlocation = $asset_current_defaultlocation->parent;
+                                                  
+                                                @endphp
+                                            @endwhile
+
                                                 @can('superuser')
-                                                    <a href="{{ route('locations.show', ['location' => $asset->defaultLoc->id]) }}">
+                                                <a data-toggle="tooltip" data-placement="right" title="{{ $asset_deffullpath }}"  href="{{ route('locations.show', ['location' => $asset->defaultLoc->id]) }}">
                                                         {{ $asset->defaultLoc->name }}
                                                     </a>
                                                 @else
