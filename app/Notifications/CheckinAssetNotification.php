@@ -59,11 +59,6 @@ class CheckinAssetNotification extends Notification
        return NotificationIntegrations::msteamsMessageBuilder($this->item, $this->target, $this->admin, $this->direction, $this->note, $this->expected_checkin);
     }
 
-    public function toWebhook($notifiable)
-    {
-        return NotificationIntegrations::webhookMessageBuilder($this->item, $this->target, $this->admin, $this->direction, $this->note, $this->expected_checkin, $this->settings->slack_botname);
-    }
-
     public function toDiscord($notifiable)
     {
         //return $this->toSlack($notifiable);
