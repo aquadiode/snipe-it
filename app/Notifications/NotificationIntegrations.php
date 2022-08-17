@@ -118,6 +118,8 @@ class NotificationIntegrations extends Notification
             $directionicon = ($direction == "out" ? "&#x2B06;" : "&#x2B07;");
             $tofrom = ($direction == "out" ? "To" : "From");
         
+            
+
             //in php8 this can be rewritten using nullsafe operator on Fluent interface method chaining
             $msTeamsMessage = (new MicrosoftTeamsMessage)->create();
 
@@ -132,7 +134,7 @@ class NotificationIntegrations extends Notification
             if ($direction == 'in' && $type == "Asset")  $msTeamsMessage->fact('Status', $item->assetstatus->name, $sectionId = 'action_msteams');
            // $msTeamsMessage->button('View in Browser', ''.$target->present()->viewUrl().'', $params = ['section' => 'action_msteams']);
     
-            return $msTeamsMessage;
+           return $msTeamsMessage;
     }
 
 /** 
@@ -185,29 +187,6 @@ class NotificationIntegrations extends Notification
                         ->content($note);
                 });
                 return $slackMessage;
-    }
-
-    public static function webhookMessageBuilder($item, $target, $admin, $direction, $note, $expectedCheckin, $botname = 'Snipe-Bot')
-    {
-        
-        $type = class_basename($item);
-
-        $typeicon = [
-            "Asset" => ":computer:",
-            "Accessory" => ":keyboard:",
-            "License" => ":floppy_disk:",
-            "Consumable" => ":paperclip:"
-        ];
-        $directionicon = ($direction =="out" ? ":arrow_up:" : ":arrow_down:");
-        $tofrom = ($direction == "out" ? "To" : "From");
-  
-      return WebhookMessage::create()
-        ->data([
-                'content' => 'Nothing here yet',
-            
-        ])
-        ->header('Content-Type', 'application/json');
-
     }
 
 }
