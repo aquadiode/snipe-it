@@ -187,7 +187,15 @@ class SettingsController extends Controller
 
     public function msteamstest(Request $request)
     {
-       
+        
+
+        $validator = Validator::make($request->all(), [
+            'msteams_endpoint'                      => 'url|regex:/https:\/\/(?:[\w\-\_]+\.)webhook\.office\.com\/webhookb2\/(?:[\w\-\_]+)\/IncomingWebhook\/(?:[\w\-\_]+)\/(?:[\w\-\_]+)/|nullable',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['message' => 'Validation failed', 'errors' => $validator->errors()], 422);
+        }
         $msteams = new Client([
             'base_url' => e($request->input('msteams_endpoint')),
             'defaults' => [
@@ -216,7 +224,7 @@ class SettingsController extends Controller
     public function discordtest(DiscordSettingsRequest $request)
     {
         $validator = Validator::make($request->all(), [
-            'discord_endpoint'                      => 'url|starts_with:"https://discord.com/api/webhooks"|nullable',
+            'discord_endpoint'                      => 'url|starts_with:"https://discordapp.com/api/webhooks"|nullable',
             'discord_botname'                       => 'string|nullable',
         ]);
 

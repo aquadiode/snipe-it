@@ -687,7 +687,8 @@ class SettingsController extends Controller
      *
      * @return View
      */
-    public function postOutwebhooks(Request $request)
+
+    public function postOutwebhooks(SlackSettingsRequest $request)
     {
         if (is_null($setting = Setting::getSettings())) {
             return redirect()->to('admin')->with('error', trans('admin/settings/message.update.error'));
@@ -696,30 +697,11 @@ class SettingsController extends Controller
         $setting->slack_endpoint = $request->input('slack_endpoint');
         $setting->slack_channel = $request->input('slack_channel');
         $setting->slack_botname = $request->input('slack_botname');
-
-        //validate our webhook settings: teams
-        $validatedDataTeams = $request->validate([
-            'msteams_endpoint'   => 'url|nullable',
-        ]);
-
-        if ($validatedDataTeams) {
-
-            $setting->msteams_endpoint = $request->input('msteams_endpoint');
-
-        }
-
-        //validate our webhook settings: discord
-        $validatedDataDiscord = $request->validate([
-            'discord_endpoint'   => 'url|nullable',
-            'discord_botname'    => 'nullable'
-       ]);
-
-        if ($validatedDataDiscord) {
-
-            $setting->discord_endpoint = $request->input('discord_endpoint');
-            $setting->discord_botname = $request->input('discord_botname');
-
-        }
+       
+        $setting->msteams_endpoint = $request->input('msteams_endpoint');
+       
+        $setting->discord_endpoint = $request->input('discord_endpoint');
+        $setting->discord_botname = $request->input('discord_botname');
 
         if ($setting->save()) {
             return redirect()->route('settings.index')
