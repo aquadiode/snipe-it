@@ -822,13 +822,6 @@ Route::group(['prefix' => 'v1', 'middleware' => ['api', 'throttle:api']], functi
             ]
             )->name('api.settings.discordtest');
 
-            Route::post('webhooktest',
-            [
-                Api\SettingsController::class, 
-                'webhooktest'
-            ]
-            )->name('api.settings.webhooktest');
-
             Route::post('mailtest',
             [
                 Api\SettingsController::class, 

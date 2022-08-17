@@ -721,18 +721,6 @@ class SettingsController extends Controller
 
         }
 
-        //validate our webhook settings: generic webhook
-        $validatedDataWebhook = $request->validate([
-            'webhook_endpoint'   => 'url|nullable',
-        ]);
-
-        if ($validatedDataWebhook) {
-
-            $setting->webhook_endpoint = $request->input('webhook_endpoint');
-
-        }
-        
-
         if ($setting->save()) {
             return redirect()->route('settings.index')
                 ->with('success', trans('admin/settings/message.update.success'));
