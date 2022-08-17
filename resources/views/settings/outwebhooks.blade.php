@@ -562,6 +562,10 @@
 
                 dataType: 'json',
 
+                accepts: {
+                    text: "application/json"
+                },
+
                 success: function (data) {
                     $('#save_discord').removeAttr('disabled');
                     $("#discordtesticon").html('');
@@ -576,9 +580,10 @@
 
                     if (data.responseJSON) {
                         var errors = data.responseJSON.errors;
-                      
+                        var error_msg = data.responseJSON.message;
                     } else {
                         var errors;
+                        var error_msg = trans('admin/settings/message.slack.error');
                     }
 
                     var error_text = '';
