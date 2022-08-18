@@ -65,7 +65,7 @@ class LicensePresenter extends Presenter
                 'field' => 'license_email',
                 'searchable' => true,
                 'sortable' => true,
-                'title' => trans('admin/licenses/form.to_email')
+                'title' => trans('admin/licenses/form.to_email'),
             ], [
                 'field' => 'license_name',
                 'searchable' => true,
@@ -78,7 +78,7 @@ class LicensePresenter extends Presenter
                 'switchable' => true,
                 'title' => trans('general.category'),
                 'visible' => false,
-                'formatter' => 'categoriesLinkObjFormatter'
+                'formatter' => 'categoriesLinkObjFormatter',
             ], [
                 'field' => 'supplier',
                 'searchable' => true,
@@ -86,7 +86,7 @@ class LicensePresenter extends Presenter
                 'switchable' => true,
                 'title' => trans('general.supplier'),
                 'visible' => false,
-                'formatter' => 'suppliersLinkObjFormatter'
+                'formatter' => 'suppliersLinkObjFormatter',
             ], [
                 'field' => 'manufacturer',
                 'searchable' => true,
@@ -109,7 +109,7 @@ class LicensePresenter extends Presenter
                 'sortable' => true,
                 'visible' => false,
                 'title' => trans('general.purchase_date'),
-                'formatter' => 'dateDisplayFormatter'
+                'formatter' => 'dateDisplayFormatter',
             ],
             [
                 'field' => 'termination_date',
