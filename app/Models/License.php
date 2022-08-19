@@ -178,6 +178,9 @@ class License extends Depreciable
                     //fill our model
                     $licenseSeat = new LicenseSeat([
                         'user_id' => Auth::id(),
+                        'license_id' => $license->id,
+                        'created_at' => now(),
+                        'updated_at' => now(),
                         'codes' =>  $seatCodes[$i] ?? null,
                     ]);
                     //add seats with codes
@@ -187,7 +190,7 @@ class License extends Depreciable
             //Make sure this is current before we log changes.
             $license->load('licenseseats.user');
            
-            // On initail create, we shouldn't log the addition of seats.
+            // On initial create, we shouldn't log the addition of seats.
             if ($license->id) {
                 //Log the addition of license to the log.
                 $logAction = new Actionlog();
@@ -232,7 +235,7 @@ class License extends Depreciable
         }
 
      
-        //remap and save our license codes whether or not they've been editted.
+        //remap and save our license codes whether or not they've been edited.
         //for each existing seat now in licenseseat table, parse the new codes saved to license table
        foreach ($license->licenseseats as $key => $ls){
             
