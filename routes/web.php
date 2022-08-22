@@ -183,6 +183,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'authorize:superuser
 
     Route::get('login-attempts', [SettingsController::class, 'getLoginAttempts'])->name('settings.logins.index');
 
+    Route::impersonate();
     // Backups
     Route::group(['prefix' => 'backups', 'middleware' => 'auth'], function () {
         Route::get('download/{filename}',
