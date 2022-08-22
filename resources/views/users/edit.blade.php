@@ -483,6 +483,29 @@
                               </div>
                           @endif
 
+                              <!-- Can be impersonated checkbox -->
+                          <div class="form-group">
+                            <div class="col-md-7 col-md-offset-3">
+                                <label for="can_be_impersonated">
+                                    <input type="checkbox" value="1" name="can_be_impersonated" class="minimal" {{ (old('remote', $user->can_be_impersonated)) == '1' ? ' checked="checked"' : '' }} aria-label="remote">
+                                    {{ trans('admin/users/general.can_be_impersonated') }}
+
+                                </label>
+                            </div>
+                        </div>
+
+                          <!-- Can impersonate checkbox -->
+                          <div class="form-group">
+                            <div class="col-md-7 col-md-offset-3">
+                                <label for="can_impersonate">
+                                    <input type="checkbox" value="1" name="can_impersonate" class="minimal" {{ (old('remote', $user->can_impersonate)) == '1' ? ' checked="checked"' : '' }} aria-label="remote">
+                                    {{ trans('admin/users/general.can_impersonate') }}
+
+                                </label>
+                            </div>
+                        </div>
+
+
                           <!-- Groups -->
                           <div class="form-group{{ $errors->has('groups') ? ' has-error' : '' }}">
                               <label class="col-md-3 control-label" for="groups[]"> {{ trans('general.groups') }}</label>

@@ -374,5 +374,6 @@ return [
     'set_to_null' => 'Delete values for this asset|Delete values for all :asset_count assets ',
     'can_be_impersonated' => 'Can Be Impersonated',
     'can_impersonate' => 'Can Impersonate',
+    'update_seats' => 'Updated Seats',
 
 ];
