@@ -111,6 +111,8 @@ class UsersController extends Controller
         $user->company_id = Company::getIdForUser($request->input('company_id', null));
         $user->manager_id = $request->input('manager_id', null);
         $user->notes = $request->input('notes');
+        $user->can_be_impersonated = $request->input('can_be_impersonated');
+        $user->can_impersonate = $request->input('can_impersonate');
         $user->address = $request->input('address', null);
         $user->city = $request->input('city', null);
         $user->state = $request->input('state', null);
@@ -261,6 +263,8 @@ class UsersController extends Controller
         $user->company_id = Company::getIdForUser($request->input('company_id', null));
         $user->manager_id = $request->input('manager_id', null);
         $user->notes = $request->input('notes');
+        $user->can_be_impersonated = $request->input('can_be_impersonated');
+        $user->can_impersonate = $request->input('can_impersonate');
         $user->department_id = $request->input('department_id', null);
         $user->address = $request->input('address', null);
         $user->city = $request->input('city', null);
