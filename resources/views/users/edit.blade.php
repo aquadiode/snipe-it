@@ -487,7 +487,7 @@
                           <div class="form-group">
                             <div class="col-md-7 col-md-offset-3">
                                 <label for="can_be_impersonated">
-                                    <input type="checkbox" value="1" name="can_be_impersonated" class="minimal" {{ (old('remote', $user->can_be_impersonated)) == '1' ? ' checked="checked"' : '' }} aria-label="remote">
+                                    <input type="checkbox" value="1" name="can_be_impersonated" class="minimal" {{ (old('can_be_impersonated', $user->can_be_impersonated)) == '1' ? ' checked="checked"' : '' }} aria-label="can_be_impersonated">
                                     {{ trans('admin/users/general.can_be_impersonated') }}
 
                                 </label>
@@ -498,7 +498,7 @@
                           <div class="form-group">
                             <div class="col-md-7 col-md-offset-3">
                                 <label for="can_impersonate">
-                                    <input type="checkbox" value="1" name="can_impersonate" class="minimal" {{ (old('remote', $user->can_impersonate)) == '1' ? ' checked="checked"' : '' }} aria-label="remote">
+                                    <input type="checkbox" value="1" name="can_impersonate" class="minimal" {{ (old('can_impersonate', $user->can_impersonate)) == '1' ? ' checked="checked"' : '' }} aria-label="can_impersonate">
                                     {{ trans('admin/users/general.can_impersonate') }}
 
                                 </label>

@@ -55,6 +55,8 @@ class User extends SnipeModel implements AuthenticatableContract, AuthorizableCo
         'manager_id',
         'password',
         'phone',
+        'can_impersonate',
+        'can_be_impersonated',
         'notes',
         'state',
         'username',
@@ -187,7 +189,7 @@ class User extends SnipeModel implements AuthenticatableContract, AuthorizableCo
      */
     public function canImpersonate()
     {
-        // For example
+        // For example, only let superuser impersonate
         return $this->isSuperUser();
     }
 
@@ -196,7 +198,13 @@ class User extends SnipeModel implements AuthenticatableContract, AuthorizableCo
      */
     public function canBeImpersonated()
     {
-        return $this->can_be_impersonated == 1;
+        if ($this->isSuperUser())
+        {
+            return false;
+        } else {
+           // return $this->can_be_impersonated == 1;
+           return true;
+        }
     }
 
     /**

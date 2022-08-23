@@ -53,6 +53,8 @@ class UsersTransformer
                     'name'=> e($user->userloc->name),
                 ] : null,
                 'notes'=> e($user->notes),
+                'can_impersonate' => $user->can_impersonate,
+                'can_be_impersonated' => $user->can_be_impersonated,
                 'permissions' => $user->decodePermissions(),
                 'activated' => ($user->activated == '1') ? true : false,
                 'ldap_import' => ($user->ldap_import == '1') ? true : false,

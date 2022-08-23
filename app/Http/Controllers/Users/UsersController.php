@@ -263,9 +263,9 @@ class UsersController extends Controller
         $user->company_id = Company::getIdForUser($request->input('company_id', null));
         $user->manager_id = $request->input('manager_id', null);
         $user->notes = $request->input('notes');
-        $user->can_be_impersonated = $request->input('can_be_impersonated');
-        $user->can_impersonate = $request->input('can_impersonate');
-        $user->department_id = $request->input('department_id', null);
+        $user->can_be_impersonated = $request->input('can_be_impersonated',0);
+        $user->can_impersonate = $request->input('can_impersonate',0);
+        $user->department_id = $request->input('department_id', 0);
         $user->address = $request->input('address', null);
         $user->city = $request->input('city', null);
         $user->state = $request->input('state', null);
@@ -548,6 +548,8 @@ class UsersController extends Controller
                         trans('general.consumables'),
                         trans('admin/users/table.groups'),
                         trans('general.notes'),
+                        trans('general.can_be_impersonated'),
+                        trans('general.can_impersonate'),
                         trans('admin/users/table.activated'),
                         trans('general.created_at'),
                     ];
@@ -579,6 +581,8 @@ class UsersController extends Controller
                             $user->consumables->count(),
                             $user_groups,
                             $user->notes,
+                            $user->can_be_impersonated,
+                            $user->can_impersonate,
                             ($user->activated == '1') ? trans('general.yes') : trans('general.no'),
                             $user->created_at,
                         ];

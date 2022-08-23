@@ -184,6 +184,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'authorize:superuser
     Route::get('login-attempts', [SettingsController::class, 'getLoginAttempts'])->name('settings.logins.index');
 
     Route::impersonate();
+
+    Route::get('/admin', function() {
+        echo "Can't be accessed by an impersonator";
+    })->middleware('impersonate.protect');
+
     // Backups
     Route::group(['prefix' => 'backups', 'middleware' => 'auth'], function () {
         Route::get('download/{filename}',
