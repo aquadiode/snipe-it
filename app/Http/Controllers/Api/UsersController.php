@@ -56,6 +56,8 @@ class UsersController extends Controller
             'users.location_id',
             'users.manager_id',
             'users.notes',
+            'users.can_be_impersonated',
+            'users.can_impersonate',
             'users.permissions',
             'users.phone',
             'users.state',
@@ -144,6 +146,14 @@ class UsersController extends Controller
 
         if ($request->filled('remote')) {
             $users = $users->where('remote', '=', $request->input('remote'));
+        }
+
+        if ($request->filled('can_be_impersonated')) {
+            $users = $users->where('can_be_impersonated', '=', $request->input('can_be_impersonated'));
+        }
+
+        if ($request->filled('can_impersonate')) {
+            $users = $users->where('can_impersonate', '=', $request->input('can_impersonate'));
         }
 
         if ($request->filled('assets_count')) {

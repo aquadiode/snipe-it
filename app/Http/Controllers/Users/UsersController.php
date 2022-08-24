@@ -25,6 +25,7 @@ use Symfony\Component\HttpFoundation\StreamedResponse;
 use View;
 use App\Notifications\CurrentInventory;
 
+
 /**
  * This controller handles all actions related to Users for
  * the Snipe-IT Asset Management application.
@@ -48,6 +49,25 @@ class UsersController extends Controller
         $this->authorize('index', User::class);
 
         return view('users/index');
+    }
+
+
+    /*
+    *   Returns a kiosk mode view for checkout, EULA acceptance and checkin under impersonation.
+    */
+
+    public function impersonate(Request $request)
+    {
+
+        try {
+            $user = User::findOrFail($request->input('id'));
+        } catch (ModelNotFoundException $e) {
+            return redirect()->route('users.index')
+                ->with('error', trans('admin/users/message.user_not_found', compact('id')));
+        }
+        Auth::user()->impersonate($user);
+        
+        return view('hardware/bulkcheckout', compact('user', 'groups', 'userGroups', 'permissions', 'userPermissions'))->with('item', $user);
     }
 
     /**

@@ -259,6 +259,10 @@
                 dest = dest + '/' + row.owner_id + '/' + element_name;
             }
 
+            if ((row.available_actions) && (row.available_actions.impersonate === true)) {
+                actions += '<a href="{{ url('/') }}/' + dest + '/' + row.id + '/impersonate" class="btn btn-sm btn-primary" data-tooltip="true" title="{{ trans('general.can_be_impersonated') }}"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i><span class="sr-only">Impersonate</span></a>&nbsp;';
+            }
+
             if ((row.available_actions) && (row.available_actions.clone === true)) {
                 actions += '<a href="{{ url('/') }}/' + dest + '/' + row.id + '/clone" class="btn btn-sm btn-info" data-tooltip="true" title="{{ trans('general.clone_item') }}"><i class="far fa-clone" aria-hidden="true"></i><span class="sr-only">Clone</span></a>&nbsp;';
             }

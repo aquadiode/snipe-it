@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Account;
 use App\Http\Controllers\ActionlogController;
+use App\Http\Controllers\Api\UsersController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\CompaniesController;
 use App\Http\Controllers\DashboardController;
@@ -220,6 +221,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'authorize:superuser
     Route::get('/', [SettingsController::class, 'index'])->name('settings.index');
 });
 
+
+Route::group(['prefix' => 'impersonate', 'middleware' => ['auth', 'authorize:impersonator']], function() {
+    Route::post('/{id}/impersonate', [UsersController::class, 'impersonate'])->name('impersonate') ;
+});
 /*
 |--------------------------------------------------------------------------
 | Importer Routes

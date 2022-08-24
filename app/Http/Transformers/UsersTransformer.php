@@ -80,6 +80,7 @@ class UsersTransformer
             'delete' => (Gate::allows('delete', User::class) && ($user->assets_count == 0) && ($user->licenses_count == 0) && ($user->accessories_count == 0) && ($user->consumables_count == 0)),
             'clone' => (Gate::allows('create', User::class) && ($user->deleted_at == '')),
             'restore' => (Gate::allows('create', User::class) && ($user->deleted_at != '')),
+            'impersonate' => (Gate::allows('impersonate', User::class) && ($user->deleted_at == '') && ($user->can_be_impersonated == 1)  && ($user->isSuperUser() == false)),
         ];
 
         $array += $permissions_array;

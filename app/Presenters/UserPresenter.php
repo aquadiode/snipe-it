@@ -241,7 +241,7 @@ class UserPresenter extends Presenter
                 'visible' => true,
             ],
             [
-                'field' => 'Can Impersonate',
+                'field' => 'can_impersonate',
                 'searchable' => true,
                 'sortable' => true,
                 'switchable' => true,
@@ -250,7 +250,7 @@ class UserPresenter extends Presenter
                 'formatter' => 'trueFalseFormatter',
             ],
             [
-                'field' => 'Can Be Impersonated',
+                'field' => 'can_be_impersonated',
                 'searchable' => true,
                 'sortable' => true,
                 'switchable' => true,
