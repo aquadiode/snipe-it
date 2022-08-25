@@ -24,7 +24,7 @@ class DiscordSettingsRequest extends FormRequest
     public function rules()
     {
         return [
-            'discord_endpoint'                      => 'url|starts_with:"https://discord.com/api/webhooks"|nullable',
+            'discord_endpoint'                      => 'url|starts_with:"https://discordapp.com/api/webhooks"|nullable',
             'discord_botname'                       => 'string|nullable',
 
         ];

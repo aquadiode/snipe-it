@@ -216,7 +216,7 @@ class SettingsController extends Controller
     public function discordtest(DiscordSettingsRequest $request)
     {
         $validator = Validator::make($request->all(), [
-            'discord_endpoint'                      => 'url|starts_with:"https://discord.com/api/webhooks"|nullable',
+            'discord_endpoint'                      => 'url|starts_with:"https://discordapp.com/api/webhooks"|nullable',
             'discord_botname'                       => 'string|nullable',
         ]);
 
