@@ -29,7 +29,7 @@ class SlackSettingsRequest extends Request
             'discord_endpoint'                    => 'url|starts_with:"https://discordapp.com/api/webhooks/"|nullable',
             'discord_botname'                     => 'string|nullable',
 
-            'msteams_endpoint'                    => 'url|regex:/https:\/\/(?:[\w\-\_]+\.)webhook\.office\.com\/webhookb2\/(?:[\w\-\_]+)\/IncomingWebhook\/(?:[\w\-\_]+)\/(?:[\w\-\_]+)/|nullable',
+            'msteams_endpoint'                    => 'url|regex:/https:\/\/(?:[\w\-\@\_]+\.)webhook\.office\.com\/webhookb2\/(?:[\w\-\@\_]+)\/IncomingWebhook\/(?:[\w\-\@\_]+)\/(?:[\w\-\@\_]+)/|nullable',
         ];
     }
 

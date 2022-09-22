@@ -190,7 +190,7 @@ class SettingsController extends Controller
         
 
         $validator = Validator::make($request->all(), [
-            'msteams_endpoint'                      => 'url|regex:/https:\/\/(?:[\w\-\_]+\.)webhook\.office\.com\/webhookb2\/(?:[\w\-\_]+)\/IncomingWebhook\/(?:[\w\-\_]+)\/(?:[\w\-\_]+)/|nullable',
+            'msteams_endpoint'                      => 'url|regex:/https:\/\/(?:[\w\-\@\_]+\.)webhook\.office\.com\/webhookb2\/(?:[\w\-\@\_]+)\/IncomingWebhook\/(?:[\w\-\@\_]+)\/(?:[\w\-\@\_]+)/|nullable',
         ]);
 
         if ($validator->fails()) {
