@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
     "content-hash": "0c1f3848f8c9ede2b5f1513e4feaa7d7",
-=======
-    "content-hash": "b892db956894d757003e3cc308f87ff5",
->>>>>>> 2003afafd (updated composer to include lnc dependencies)
     "packages": [
         {
             "name": "alek13/slack",
