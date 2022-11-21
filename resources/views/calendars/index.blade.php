@@ -1,7 +1,13 @@
 @extends('layouts/default')
 
 
-<script type="text/javascript">
+
+calendar();
+
+
+@push('js')
+
+<script nonce="{{ csrf_token() }}">
 
 public function calendar($date = null)
 {
@@ -35,4 +41,6 @@ public function calendar($date = null)
     $html .= '</div></div>';
     return $html;
 }
-</script>
+
+    </script> 
+@endpush

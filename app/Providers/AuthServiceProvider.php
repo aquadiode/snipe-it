@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Accessory;
 use App\Models\Asset;
 use App\Models\AssetModel;
+use App\Models\Calendar;
 use App\Models\Category;
 use App\Models\Company;
 use App\Models\Component;
@@ -56,6 +57,7 @@ class AuthServiceProvider extends ServiceProvider
         Accessory::class => AccessoryPolicy::class,
         Asset::class => AssetPolicy::class,
         AssetModel::class => AssetModelPolicy::class,
+        Calendar::class => CalendarPolicy::class,
         Category::class => CategoryPolicy::class,
         Component::class => ComponentPolicy::class,
         Consumable::class => ConsumablePolicy::class,

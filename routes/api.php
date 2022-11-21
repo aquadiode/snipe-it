@@ -560,7 +560,22 @@ Route::group(['prefix' => 'v1', 'middleware' => ['api', 'throttle:api']], functi
         'except' => ['create', 'edit'],
         'parameters' => ['asset' => 'asset_id'],
         ]
-        ); // end assets API routes
+        ); 
+        
+        
+        Route::resource('calendar', 
+        Api\CalendarController::class,
+        ['names' => 
+            [
+                'index' => 'api.calendar.index',
+                'show' => 'api.calendar.show',
+            ]
+        ]
+        );
+        
+        
+        
+        // end assets API routes
 
         /**
          * Asset maintenances API routes
