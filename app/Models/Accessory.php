@@ -59,6 +59,7 @@ class Accessory extends SnipeModel
     public $rules = [
         'name'              => 'required|min:3|max:255',
         'qty'               => 'required|integer|min:1',
+        'chk_qty'           => 'required|integer|min:1',
         'category_id'       => 'required|integer|exists:categories,id',
         'company_id'        => 'integer|nullable',
         'min_amt'           => 'integer|min:0|nullable',
@@ -93,6 +94,7 @@ class Accessory extends SnipeModel
         'manufacturer_id',
         'supplier_id',
         'image',
+        'chk_qty',
         'qty',
         'min_amt',
         'requestable',

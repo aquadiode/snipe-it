@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Accessories;
 
 use App\Events\CheckoutableCheckedOut;
+use App\Http\Controllers\CheckInOutRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Accessory;
 use App\Models\User;
@@ -14,6 +15,7 @@ use Illuminate\Support\Facades\Input;
 
 class AccessoryCheckoutController extends Controller
 {
+    use CheckInOutRequest;
     /**
      * Return the form to checkout an Accessory to a user.
      *
@@ -61,7 +63,11 @@ class AccessoryCheckoutController extends Controller
         }
 
         $this->authorize('checkout', $accessory);
+        \Log::debug($request->input('chk_qty'));
+        
+        // \Log::debug($this->determineCheckoutTarget($accessory));
 
+        \Log::debug(request('checkout_to_type'));
         if (! $user = User::find($request->input('assigned_to'))) {
             return redirect()->route('accessories.checkout.show', $accessory->id)->with('error', trans('admin/accessories/message.checkout.user_does_not_exist'));
         }
@@ -69,6 +75,7 @@ class AccessoryCheckoutController extends Controller
         // Update the accessory data
         $accessory->assigned_to = e($request->input('assigned_to'));
 
+        
         $accessory->users()->attach($accessory->id, [
             'accessory_id' => $accessory->id,
             'created_at' => Carbon::now(),

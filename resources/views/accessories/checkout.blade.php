@@ -49,9 +49,26 @@
           </div>
           @endif
 
+          @if ($accessory->numRemaining() > 1)
+          <!-- accessory quantity to checkout -->
+          <div class="form-group">
+            <label class="col-sm-3 control-label">{{ trans('admin/accessories/general.qty') }}</label>
+            <div class="col-md-6">
+              <p class="form-control-static"> {{ Form::number('chk_qty', old('chk_qty'), array('class' => 'form-control, d-inline-block','placeholder' => '1', 'min'=>'1','max'=>$accessory->numRemaining(), 'style'=>'width: 60px;')) }} / {{$accessory->numRemaining()}}</p>
+            </div>
+          </div>
+          @endif
+
           <!-- User -->
 
-          @include ('partials.forms.edit.user-select', ['translated_name' => trans('general.select_user'), 'fieldname' => 'assigned_to'])
+          @include ('partials.forms.checkout-selector', ['user_select' => 'true','asset_select' => 'true', 'location_select' => 'true'])
+
+          @include ('partials.forms.edit.user-select', ['translated_name' => trans('general.user'), 'fieldname' => 'assigned_to', 'required'=>'true'])
+
+          <!-- We have to pass unselect here so that we don't default to the asset that's being checked out. We want that asset to be pre-selected everywhere else. -->
+          @include ('partials.forms.edit.asset-select', ['translated_name' => trans('general.asset'), 'fieldname' => 'assigned_asset', 'unselect' => 'true', 'style' => 'display:none;', 'required'=>'true'])
+
+          @include ('partials.forms.edit.location-select', ['translated_name' => trans('general.location'), 'fieldname' => 'assigned_location', 'style' => 'display:none;', 'required'=>'true'])
 
 
              @if ($accessory->requireAcceptance() || $accessory->getEula() || ($snipeSettings->slack_endpoint!=''))
