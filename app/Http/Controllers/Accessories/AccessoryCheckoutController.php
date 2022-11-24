@@ -68,10 +68,40 @@ class AccessoryCheckoutController extends Controller
         // \Log::debug($this->determineCheckoutTarget($accessory));
 
         \Log::debug(request('checkout_to_type'));
+
+
+         // This item is checked out to a location
+         if (request('checkout_to_type') == 'location') {
+            $target = Location::find(request('assigned_location'));
+            $asset->location_id = ($target) ? $target->id : '';
+            $error_payload['target_id'] = $request->input('assigned_location');
+            $error_payload['target_type'] = 'location';
+
+        } elseif (request('checkout_to_type') == 'asset') {
+            $target = Asset::where('id', '!=', $asset_id)->find(request('assigned_asset'));
+            $asset->location_id = $target->rtd_location_id;
+            // Override with the asset's location_id if it has one
+            $asset->location_id = (($target) && (isset($target->location_id))) ? $target->location_id : '';
+            $error_payload['target_id'] = $request->input('assigned_asset');
+            $error_payload['target_type'] = 'asset';
+
+        } elseif (request('checkout_to_type') == 'user') {
+            // Fetch the target and set the asset's new location_id
+            $target = User::find(request('assigned_to'));
+            $asset->location_id = (($target) && (isset($target->location_id))) ? $target->location_id : '';
+            $error_payload['target_id'] = $request->input('assigned_to');
+            $error_payload['target_type'] = 'user';
+        }
+
+
+        if (! isset($target)) {
+            return response()->json(Helper::formatStandardApiResponse('error', $error_payload, 'Checkout target for asset '.e($asset->asset_tag).' is invalid - '.$error_payload['target_type'].' does not exist.'));
+        }
+/*
         if (! $user = User::find($request->input('assigned_to'))) {
             return redirect()->route('accessories.checkout.show', $accessory->id)->with('error', trans('admin/accessories/message.checkout.user_does_not_exist'));
         }
-
+*/
         // Update the accessory data
         $accessory->assigned_to = e($request->input('assigned_to'));
 
